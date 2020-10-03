@@ -6,6 +6,21 @@
   <router-view />
 </template>
 
+<script>
+	import { defineComponent } from "vue";
+	import { useClient, defaultPlugins } from "villus";
+	export default defineComponent({
+		name: "App",
+		setup() {
+			function authPlugin({opContext}){opContext.headers.Authorization = "Bearer fnAD3LFuxIACAjaUywlkAiWKbquJvYOmK3x1JTN_" }
+			useClient({
+				url: 'https://graphql.fauna.com/graphql',
+				use: [authPlugin, ...defaultPlugins()]
+			})
+		}
+	})
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

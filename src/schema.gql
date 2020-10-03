@@ -1,0 +1,10 @@
+type Mentor {
+  firstName: String
+  lastName: String
+  phone: String
+  email: String
+}
+
+type Query {
+  allMentors: [Mentor!]
+}
